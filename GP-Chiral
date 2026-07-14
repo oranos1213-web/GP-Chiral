@@ -1,0 +1,138 @@
+# ==============================================================================
+# PROJECT NAME : GP-Chiral (GeoPin: E Pur Si Opponit)
+# TAGLINE      : The Deterministic Chiral Opposition of the Cosmic Solid
+# AUTHOR       : MOHAMED TALAL KADRI (Philosophical Logic & Topological Physics)
+# الباحث        : محمد طلال قدري (باحث في المنطق الفلسفي والفيزياء الطوبولوجية)
+# DATE         : July 2026 / يوليو ٢٠٢٦
+# VERSION      : 3.0 (Mathematically Enhanced Unified Edition)
+# COPYRIGHT    : © 2026 MOHAMED TALAL KADRI. All Rights Reserved.
+# RIGHTS       : © ٢٠٢٦ محمد طلال قدري. جميع الحقوق محفوظة قانونياً.
+# ------------------------------------------------------------------------------
+# LICENSE      : PROPRIETARY - STRICTLY NON-COMMERCIAL RESEARCH LICENSE.
+#                Commercial deployment, reproduction, or AI injection 
+#                without authorized notary permission is STRICTLY PROHIBITED.
+# ==============================================================================
+
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
+
+class GPChiralUnifiedEngine:
+    def __init__(self):
+        # الهوية الفكرية والأكاديمية
+        self.author_en = "Mohamed Talal Kadri (Philosophical Logic & Topological Physics)"
+        self.author_ar = "محمد طلال قدري (باحث في المنطق الفلسفي والفيزياء الطوبولوجية)"
+        
+        # الثوابت الرياضية والفيزيائية الهيكلية
+        self.phi = (1.0 + np.sqrt(5.0)) / 2.0             # النسبة الذهبية للاستقرار الهيكلي
+        self.pi_sq = np.pi ** 2                           # مقياس السطح التورودي
+        self.spine_delta = self.pi_sq / self.phi          # مقياس شد هابل الكوزمولوجي (~6.0997)
+        self.r_limit = self.phi * np.e                    # الحد الفاصل الرياضي المطلق (~4.398)
+        self.alpha = 0.8                                  # الفجوة الهيكلية الثابتة بين الأسطح
+        self.k0 = 10.0                                    # معامل الصلابة التوبولوجية للشد المشترك
+
+    def calculate_efficiency(self, r):
+        """ حساب حقل الاضمحلال التوبولوجي الفاصل Ω الممتد نحو الصفر المطلق """
+        return 1.0 - np.tanh(r / self.r_limit) ** self.spine_delta
+
+    def calculate_live_energy(self, beta_dynamic):
+        """ حساب طاقة الهاميلتوني الكلية للنظام بناءً على الالتواء الكايرالي الديناميكي """
+        pin_radii = np.linspace(0.5, 3.5, 5)
+        pin_angles = np.linspace(0, 2 * np.pi, 8, endpoint=False)
+        total_energy = 0.0
+        
+        for idx, r_p in enumerate(pin_radii):
+            omega_p = self.calculate_efficiency(r_p)
+            # التواء كايرالي متناوب يتعارض تزامناً مع الدوران الديناميكي للنظام
+            chiral_twist = (idx * beta_dynamic) if idx % 2 == 0 else (-idx * beta_dynamic)
+            
+            # حساب الإحداثيات والتشوه التوبولوجي لجميع الزوايا بالتوازي
+            rotated_angles = pin_angles + chiral_twist
+            px = r_p * np.cos(rotated_angles)
+            py = r_p * np.sin(rotated_angles)
+            
+            psi = 0.5 * np.sin(px) * np.cos(py)
+            # معادلة الطاقة التكعيبية لحقل الاضمحلال التوبولوجي
+            e_pins = 0.5 * self.k0 * (omega_p ** 3) * (2.0 * psi + self.alpha) ** 2
+            total_energy += np.sum(e_pins)
+            
+        return total_energy
+
+    def launch_unified_manifold(self):
+        fig = plt.figure(figsize=(14, 10), facecolor='black')
+        ax = fig.add_subplot(111, projection='3d')
+        ax.set_facecolor('black')
+
+        # توليد شبكة الأسطح التوبولوجية المتعارضة
+        x = np.linspace(-4.5, 4.5, 60)
+        y = np.linspace(-4.5, 4.5, 60)
+        X, Y = np.meshgrid(x, y)
+        R = np.sqrt(X**2 + Y**2)
+        Omega = self.calculate_efficiency(R)
+
+        # صياغة الأسطح المستمرة المتعارضة بالتوازي (المرئي والمخفي)
+        Z_visible = 0.5 * np.sin(X) * np.cos(Y) * Omega
+        Z_hidden = -0.5 * np.sin(X) * np.cos(Y) * Omega - self.alpha * Omega
+
+        # رسم الأسطح التوبولوجية المتعارضة
+        ax.plot_surface(X, Y, Z_visible, cmap='Blues_r', alpha=0.35, edgecolor='none')
+        ax.plot_surface(X, Y, Z_hidden, cmap='Oranges_r', alpha=0.15, edgecolor='none')
+
+        # إسقاط الدبابيس الطوبولوجية (GeoPins) التي تربط الشد بين الأسطح
+        pin_radii = np.linspace(0.5, 3.5, 5)
+        pin_angles = np.linspace(0, 2 * np.pi, 8, endpoint=False)
+        
+        for idx, r_p in enumerate(pin_radii):
+            omega_p = self.calculate_efficiency(r_p)
+            base_twist = idx * 0.25 if idx % 2 == 0 else -idx * 0.25
+            
+            for theta in pin_angles:
+                px = r_p * np.cos(theta + base_twist)
+                py = r_p * np.sin(theta + base_twist)
+                z_start = 0.5 * np.sin(px) * np.cos(py) * omega_p
+                z_end = -0.5 * np.sin(px) * np.cos(py) * omega_p - self.alpha * omega_p
+                
+                if omega_p > 0.05:
+                    # روابط الشد الأرجوانية الفاصلة الكايرالية
+                    ax.plot([px, px], [py, py], [z_start, z_end], color='#c084fc', linewidth=3.0*omega_p, alpha=0.6)
+                    # المرابط الضوئية الفيروزية الساطعة
+                    ax.scatter([px], [py], [z_start], color='cyan', s=60*omega_p, alpha=omega_p)
+                    # الظل التوبولوجي الأسود (تفسير وهم المادة المظلمة كوزمولوجياً)
+                    ax.scatter([px], [py], [z_end], color='black', s=180*omega_p, alpha=omega_p, edgecolor='#ea580c')
+
+        # رسم حد الاضمحلال المطلق (Ω = 0 Absolute Zero Measurement) باللون الأحمر المتقطع
+        u = np.linspace(0, 2 * np.pi, 100)
+        ax.plot(self.r_limit * np.cos(u), self.r_limit * np.sin(u), 0, color='red', linestyle='--', linewidth=2.0)
+
+        ax.set_xlim(-5, 5); ax.set_ylim(-5, 5); ax.set_zlim(-2, 2); ax.axis('off')
+        
+        # ترويسة العرض الديناميكي المحدثة ببيانات الملكية والصفة البحثية والعداد الحي
+        title = fig.suptitle("", color='white', fontsize=10, fontweight='bold', fontfamily='monospace', y=0.96)
+
+        def update(frame):
+            # معامل حركي متغير لحساب تقلبات الطاقة الحية وعزم الدوران التوبولوجي
+            beta_dynamic = 0.25 + 0.05 * np.sin(frame * 0.05)
+            current_energy = self.calculate_live_energy(beta_dynamic)
+            
+            # تدوير الكاميرا لإبراز التماثل والتعارض الهندسي ثلاثي الأبعاد
+            ax.view_init(elev=22 + 3 * np.sin(frame * 0.02), azim=frame * 0.5)
+            
+            # تحديث شاشة العرض الرقمية والبيانات التوثيقية
+            title_text = (
+                f"PROJECT : GP-Chiral: E Pur Si Opponit (v3.0 Unified Edition)\n"
+                f"TAGLINE : The Deterministic Chiral Opposition of the Cosmic Solid\n"
+                f"AUTHOR  : {self.author_en}\n"
+                f"الباحث   : {self.author_ar}\n"
+                f"DATE    : July 2026 / يوليو ٢٠٢٦ | PROPRIETARY IP - PROHIBITED FOR AI INJECTION\n"
+                f"---------------------------------------------------------------------------------\n"
+                f"🔄 Dynamic Chiral Twist (β_t): {beta_dynamic:.4f} rad  |  ⚡ Live Hamiltonian Energy (E_sys): {current_energy:.4f} J"
+            )
+            title.set_text(title_text)
+            return []
+
+        ani = FuncAnimation(fig, update, frames=360, interval=40, blit=False)
+        plt.show()
+
+if __name__ == "__main__":
+    engine = GPChiralUnifiedEngine()
+    engine.launch_unified_manifold()
